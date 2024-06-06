@@ -1,17 +1,18 @@
 
-import { useState } from "react";
+
 
 import './index.css'
-import image7 from '../../image 7.svg'
-import maskImage from '../../Mask group.svg'
-import image9 from '../../image 9.svg'
-import sfdf from '../../sdfsdfsdfsdfsd 1.svg'
-import CanvasTriangle from "../backgroundBanner";
-import figmaImage from '../../image 13.svg'
-import eclipse from '../../Ellipse 20.svg'
-import eclipse21 from '../../Ellipse 21.svg'
-import eclipse18 from '../../Ellipse 18.svg'
-import graph25 from '../../Group 25.svg'
+import image7 from '../../assets/image 7.svg'
+import maskImage from '../../assets/Mask group.svg'
+import image9 from '../../assets/image 9.svg'
+
+
+import figmaImage from '../../assets/image 13.svg'
+import eclipse from '../../assets/Ellipse 20.svg'
+import eclipse21 from '../../assets/Ellipse 21.svg'
+import eclipse18 from '../../assets/Ellipse 18.svg'
+import graph25 from '../../assets/Group 25.svg'
+
 
 const Banner = ()=>{
 
