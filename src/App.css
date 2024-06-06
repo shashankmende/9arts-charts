@@ -1,0 +1,15 @@
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+.animation-chart-bg-container {
+  /* border: 2px solid red; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #16252e;
+  
+}

@@ -1,0 +1,7 @@
+
+
+.canvas-class {
+    width: 100% !important;
+    border: 2px solid red;
+    border-top-right-radius: 100%;
+}
