@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import { Bar } from 'react-chartjs-2';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import './index.css';
-import { color, fontString } from 'chart.js/helpers';
+// import { color, fontString } from 'chart.js/helpers';
 
 // Register necessary Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -47,23 +47,37 @@ const BarChart = ({ chartKey }) => {
           beginAtZero: true,
           ticks: {
             color: 'white', 
+            font:{
+              size:18
+            }
           },
           title: {
             display: true,
             text: 'Experience(years)',
-            color:"white"
-        }
+            color:"white",
+            font:{
+              size:18
+            }
+        },
+        
+
         },
         x: {
           ticks: {
             color: 'white', 
+            font: {
+              size: 18, 
+            },
             
           },
+         
           title:{
             display:true,
             text:'Salary',
             color:"white",
-            fontSize:'22px'
+            font:{
+              size:18
+            }
             
           }
         },
@@ -81,7 +95,7 @@ const BarChart = ({ chartKey }) => {
     },
     plugins: {
       legend: {
-        display: false, // Hide the legend
+        display: false, 
       },
       title: {
         display: false,
