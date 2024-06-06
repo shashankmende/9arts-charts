@@ -3,44 +3,71 @@ import ReactDOM from 'react-dom';
 import { Bar } from 'react-chartjs-2';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, plugins } from 'chart.js';
-import './index.css'
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import './index.css';
+import { color, fontString } from 'chart.js/helpers';
+
 // Register necessary Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const BarChart = ({ chartKey }) => {
   const chartRef = useRef(null);
-  //options.plugins.legend.labels
+
   const data = {
-    labels: ['Min', 'February', 'March', 'April', 'May', 'June','July',"August"],
+    labels: ['7L', '12L', '3L', '5L', '8L', '15L', '3.5L', '15L'],
     datasets: [
       {
-        labels:'sales',
-        data: [1, 2, 3, 22, 5, 16,7,18],
-        backgroundColor: [
-            '#ffffff', 
-            '#ffffff', 
-            '#ffffff', 
-            '#ff3300',
-            '#ffffff', 
-               
-            '#ffffff', 
-            '#ff3300',     
-            '#ffffff', 
-          ],
+        data: [5, 15, 9, 22, 5, 16, 7, 18],
+        backgroundColor: (context) => {
+          const chart = context.chart;
+          const { ctx, chartArea } = chart;
+          if (!chartArea) {
+            return null;
+          }
+          const gradientMay = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+          gradientMay.addColorStop(0, '#ff9933');
+          gradientMay.addColorStop(1, '#ff3399');
+          
+          const gradientJune = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+          gradientJune.addColorStop(0, '#ff9933');
+          gradientJune.addColorStop(1, '#ff3399');
+
+          const backgroundColor = ['#ffffff', gradientMay, '#ffffff', gradientMay, '#ffffff', gradientJune, '#ffffff', '#ffffff'];
+          
+          return backgroundColor[context.dataIndex];
+        },
         barThickness: 80
-        
       },
     ],
   };
 
   const options = {
     scales: {
-      y: {
-        beginAtZero: true,
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: 'white', 
+          },
+          title: {
+            display: true,
+            text: 'Experience(years)',
+            color:"white"
+        }
+        },
+        x: {
+          ticks: {
+            color: 'white', 
+            
+          },
+          title:{
+            display:true,
+            text:'Salary',
+            color:"white",
+            fontSize:'22px'
+            
+          }
+        },
       },
-   
-    },
     animation: {
       duration: 1000,
       delay: (context) => {
@@ -53,15 +80,13 @@ const BarChart = ({ chartKey }) => {
       },
     },
     plugins: {
-        legend: {
-          labels: {
-            display: false,
-          },
-        },
-        title: {
-          display: false,
-        },
-      }
+      legend: {
+        display: false, // Hide the legend
+      },
+      title: {
+        display: false,
+      },
+    },
   };
 
   useEffect(() => {
@@ -81,7 +106,7 @@ const BarChart = ({ chartKey }) => {
     window.addEventListener('scroll', handleScroll);
     AOS.init({
       duration: 1000,
-      once: false, // Changed to false to allow repeat animations
+      once: false,
     });
 
     return () => {
@@ -102,11 +127,11 @@ const AnimationChart = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: false, // Changed to false to allow repeat animations
+      once: false,
     });
 
     const resetChart = () => {
-      setChartKey(prevKey => prevKey + 1); // Change the key to force re-render
+      setChartKey(prevKey => prevKey + 1);
     };
 
     window.addEventListener('visibilitychange', resetChart);
@@ -117,20 +142,12 @@ const AnimationChart = () => {
   }, []);
 
   return (
-    
-    <div style={{ padding: '40px',width:'80%',height:'60%',marginBottom:"100px",border: '2px solid gray',borderRadius:'8px',
-    boxShadow: '0 1px 8px 0 gray'
-    }}>
-      
+    <div style={{ padding: '40px', width: '80%', marginBottom: "100px", border: '2px solid gray', borderRadius: '8px',
+    boxShadow: '0 1px 8px 0 gray' }}>
       <h1 className='bar-chart-heading'>Annual Average Salaries</h1>
-      
       <BarChart chartKey={chartKey} />
-      
     </div>
-    
-    
   );
 };
 
 export default AnimationChart;
-
