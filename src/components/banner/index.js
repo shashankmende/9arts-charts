@@ -19,25 +19,68 @@ const Banner = ()=>{
     return (
         <div className="bg-container">
             
-            <div className="text-container">
+            <div 
+            data-aos='fade-down'
+            data-aos-offset='0'
+            data-aos-delay='50'
+            data-aos-easing = 'linear'
+            data-aos-duration="1000"
+            data-aos-mirror='true'
+            data-aos-once='false'
+            
+             className="text-container">
                 <h1 className="improve-heading">IMPROVE WITH COURSES & COACHES</h1>
                 <h1 className="learning-heading">Learn UI/UX Design from Industry Experts</h1>
                 <p className="experience-para">We make sure that you have best learning experience</p>
             </div>
             <div className="cards-container">
-                <div className="card1">
+                <div
+
+            data-aos='zoom-out-up'
+            data-aos-offset="80"
+            data-aos-delay="10"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="top-center"
+                            
+                className="card1">
                     
                     <img src={image7} alt="card1" className="card1-image"/>
                     <h1 className="online-courses-heading">ONLINE COURSES</h1>
                     <button type="button" className="enroll-now-button">ENROLL NOW</button>
                 </div>
-                <div className="card1">
+                <div 
+
+                data-aos='zoom-out-up'
+                data-aos-offset="80"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in"
+                data-aos-mirror="true"
+                data-aos-once="false"
+                data-aos-anchor-placement="top-center"
+                
+                className="card1">
                     
                     <img src={maskImage} alt="card1" className="card1-image"/>
                     <h1 className="online-courses-heading">OFFLINE COURSES</h1>
                     <button type="button" className="enroll-now-button">ENROLL NOW</button>
                 </div>
-                <div className="card1">
+                <div 
+                
+                data-aos='zoom-out-up'
+             data-aos-offset="80"
+             data-aos-delay="30"
+             data-aos-duration="1000"
+             data-aos-easing="ease-in-out"
+             data-aos-mirror="true"
+             data-aos-once="false"
+             data-aos-anchor-placement="top-center"
+                className="card1"
+                
+                >
                     
                     <img src={image9} alt="card3" className="card1-image"/>
                     <h1 className="online-courses-heading">PLACEMENT GUIDE</h1>
@@ -48,7 +91,17 @@ const Banner = ()=>{
 
             </div>
 
-            <div className="animation-text-container">
+            <div
+            data-aos="zoom-out-up"
+            data-aos-offset="50"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="top-center"
+            
+            className="animation-text-container">
                 
                 <div className="image-container">
                     <img src={graph25} alt="animation" className="animation-image"/>
@@ -67,7 +120,18 @@ const Banner = ()=>{
                 </div>
             </div>
 
-            <div className="master-class-coaching-bg-container">
+            <div
+            
+             data-aos='zoom-out-up'
+             data-aos-offset="40"
+             data-aos-delay="50"
+             data-aos-duration="600"
+             data-aos-easing="ease-in"
+             data-aos-mirror="true"
+             data-aos-once="false"
+             data-aos-anchor-placement="top-center"
+            
+            className="master-class-coaching-bg-container">
                 <div className="master-class-coaching-text-container">
                     <h1 className="master-class-coaching-heading">MASTERCLASSES & COACHING</h1>
                     <h1 className="optimize-skill-set-heading">OPTIMIZE YOUR <br/> SKILL SET</h1>

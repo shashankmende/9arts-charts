@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-// import ReactDOM from 'react-dom';
 import { Bar } from 'react-chartjs-2';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import './index.css';
-// import { color, fontString } from 'chart.js/helpers';
 
 // Register necessary Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -32,7 +30,7 @@ const BarChart = ({ chartKey }) => {
           gradientJune.addColorStop(0, '#ff9933');
           gradientJune.addColorStop(1, '#ff3399');
 
-          const backgroundColor = ['#ffffff', gradientMay, '#ffffff', gradientMay, '#ffffff', gradientJune, '#ffffff', '#ffffff'];
+          const backgroundColor = ['#ffffff', gradientMay, '#ffffff', gradientMay, '#ffffff', gradientJune, '#ffffff', gradientMay];
           
           return backgroundColor[context.dataIndex];
         },
@@ -57,12 +55,21 @@ const BarChart = ({ chartKey }) => {
             color:"white",
             font:{
               size:18
-            }
+            },
+            
         },
-        
+        grid: {
+          color: '#b6b8b6', 
+          lineWidth: 0.2, 
+          borderDash: [5,5], 
+        }
 
         },
         x: {
+          
+          grid:{
+            display:false
+          },
           ticks: {
             color: 'white', 
             font: {
@@ -70,6 +77,8 @@ const BarChart = ({ chartKey }) => {
             },
             
           },
+
+          
          
           title:{
             display:true,
@@ -139,6 +148,7 @@ const BarChart = ({ chartKey }) => {
 
 const AnimationChart = () => {
   const [chartKey, setChartKey] = useState(0);
+  const chartContainerRef = useRef(null);
 
   useEffect(() => {
     AOS.init({
@@ -152,13 +162,31 @@ const AnimationChart = () => {
 
     window.addEventListener('visibilitychange', resetChart);
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            resetChart();
+          }
+        });
+      },
+      { threshold: 0.5 } // Adjust this threshold as needed
+    );
+
+    if (chartContainerRef.current) {
+      observer.observe(chartContainerRef.current);
+    }
+
     return () => {
       window.removeEventListener('visibilitychange', resetChart);
+      if (chartContainerRef.current) {
+        observer.unobserve(chartContainerRef.current);
+      }
     };
   }, []);
 
   return (
-    <div style={{ padding: '40px', width: '80%', marginBottom: "100px", border: '2px solid gray', borderRadius: '8px',
+    <div ref={chartContainerRef} style={{ padding: '40px', width: '80%', marginBottom: "100px", border: '2px solid gray', borderRadius: '8px',
     boxShadow: '0 1px 8px 0 gray' }}>
       <h1 className='bar-chart-heading'>Annual Average Salaries</h1>
       <BarChart chartKey={chartKey} />
