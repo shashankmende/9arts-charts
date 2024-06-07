@@ -83,7 +83,8 @@ const BarChart = ({ chartKey }) => {
         },
       },
     animation: {
-      duration: 1000,
+      duration: 2000,
+      easing:'easeOutElastic',
       delay: (context) => {
         let delay = 0;
         if (context.type === 'data' && context.mode === 'default' && !context.dropped) {
@@ -101,6 +102,7 @@ const BarChart = ({ chartKey }) => {
         display: false,
       },
     },
+   
   };
 
   useEffect(() => {
