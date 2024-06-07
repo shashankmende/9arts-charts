@@ -20,7 +20,7 @@ const Banner = ()=>{
         <div className="bg-container">
             
             <div 
-            data-aos='fade-down'
+            data-aos='zoom-out-up'
             data-aos-offset='0'
             data-aos-delay='50'
             data-aos-easing = 'linear'
@@ -34,67 +34,54 @@ const Banner = ()=>{
                 <p className="experience-para">We make sure that you have best learning experience</p>
             </div>
             <div className="cards-container">
-                <div
-
-            data-aos='zoom-out-up'
-            data-aos-offset="80"
-            data-aos-delay="10"
-            data-aos-duration="1000"
-            data-aos-easing="ease-in"
-            data-aos-mirror="true"
-            data-aos-once="false"
-            data-aos-anchor-placement="top-center"
-                            
-                className="card1">
-                    
-                    <img src={image7} alt="card1" className="card1-image"/>
-                    <h1 className="online-courses-heading">ONLINE COURSES</h1>
-                    <button type="button" className="enroll-now-button">ENROLL NOW</button>
-                </div>
-                <div 
-
-                data-aos='zoom-out-up'
-                data-aos-offset="80"
-                data-aos-delay="50"
-                data-aos-duration="1000"
-                data-aos-easing="ease-in"
-                data-aos-mirror="true"
-                data-aos-once="false"
-                data-aos-anchor-placement="top-center"
-                
-                className="card1">
-                    
-                    <img src={maskImage} alt="card1" className="card1-image"/>
-                    <h1 className="online-courses-heading">OFFLINE COURSES</h1>
-                    <button type="button" className="enroll-now-button">ENROLL NOW</button>
-                </div>
-                <div 
-                
-                data-aos='zoom-out-up'
-             data-aos-offset="80"
-             data-aos-delay="30"
-             data-aos-duration="1000"
-             data-aos-easing="ease-in-out"
-             data-aos-mirror="true"
-             data-aos-once="false"
-             data-aos-anchor-placement="top-center"
-                className="card1"
-                
-                >
-                    
-                    <img src={image9} alt="card3" className="card1-image"/>
-                    <h1 className="online-courses-heading">PLACEMENT GUIDE</h1>
-                    <button type="button" className="enroll-now-button">ENROLL NOW</button>
-                </div>
-
-                
-
-            </div>
+    <div
+        data-aos='zoom-out-up'
+        data-aos-offset="100"
+        data-aos-delay="100"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+        className="card1">
+        <img src={image7} alt="card1" className="card1-image"/>
+        <h1 className="online-courses-heading">ONLINE COURSES</h1>
+        <button type="button" className="enroll-now-button">ENROLL NOW</button>
+    </div>
+    <div
+        data-aos='zoom-out-up'
+        data-aos-offset="100"
+        data-aos-delay="600"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+        className="card1">
+        <img src={maskImage} alt="card1" className="card1-image"/>
+        <h1 className="online-courses-heading">OFFLINE COURSES</h1>
+        <button type="button" className="enroll-now-button">ENROLL NOW</button>
+    </div>
+    <div
+        data-aos='zoom-out-up'
+        data-aos-offset="100"
+        data-aos-delay="800"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+        className="card1">
+        <img src={image9} alt="card3" className="card1-image"/>
+        <h1 className="online-courses-heading">PLACEMENT GUIDE</h1>
+        <button type="button" className="enroll-now-button">ENROLL NOW</button>
+    </div>
+</div>
 
             <div
             data-aos="zoom-out-up"
             data-aos-offset="50"
-            data-aos-delay="50"
+            data-aos-delay="1000"
             data-aos-duration="1000"
             data-aos-easing="ease-in-out"
             data-aos-mirror="true"
@@ -123,8 +110,8 @@ const Banner = ()=>{
             <div
             
              data-aos='zoom-out-up'
-             data-aos-offset="40"
-             data-aos-delay="50"
+             data-aos-offset="0"
+             data-aos-delay="0"
              data-aos-duration="600"
              data-aos-easing="ease-in"
              data-aos-mirror="true"
